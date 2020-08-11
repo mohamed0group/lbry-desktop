@@ -80,6 +80,7 @@ type Props = {
   onChannelChange: string => void,
   ytSignupPending: boolean,
   modal: { id: string, modalProps: {} },
+  enablePublishPreview: boolean,
 };
 
 function PublishForm(props: Props) {
@@ -118,6 +119,7 @@ function PublishForm(props: Props) {
     onChannelChange,
     ytSignupPending,
     modal,
+    enablePublishPreview,
   } = props;
 
   // Used to check if name should be auto-populated from title
@@ -290,7 +292,7 @@ function PublishForm(props: Props) {
     }
     // Publish file
     if (mode === PUBLISH_MODES.FILE) {
-      if (isStillEditing) {
+      if (isStillEditing || !enablePublishPreview) {
         publish(filePath, false);
       } else {
         setPreviewing(true);
