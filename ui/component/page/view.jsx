@@ -39,8 +39,7 @@ function Page(props: Props) {
     children,
     className,
     filePage = false,
-    authPage = false,
-    fullWidthPage = false,
+    homePage = false,
     noHeader = false,
     noFooter = false,
     noSideNavigation = false,
@@ -92,9 +91,9 @@ function Page(props: Props) {
         )}
         <main
           className={classnames(MAIN_CLASS, className, {
-            'main--full-width': fullWidthPage,
-            'main--auth-page': authPage,
+            'main--full-width': authPage,
             'main--file-page': filePage,
+            'main--homepage': homePage,
           })}
         >
           {children}
