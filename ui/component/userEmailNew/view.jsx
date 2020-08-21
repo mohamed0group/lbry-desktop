@@ -1,4 +1,5 @@
 // @flow
+import { DOMAIN } from 'config';
 import * as PAGES from 'constants/pages';
 import React, { useState } from 'react';
 import { FormField, Form } from 'component/common/form';
@@ -88,9 +89,9 @@ function UserEmailNew(props: Props) {
   return (
     <div className="main__sign-up">
       <Card
-        title={__('Register with lbry.tv')}
+        title={__('Sign up with %domain%', { domain: DOMAIN })}
         // @if TARGET='app'
-        subtitle={__('An account with lbry.tv allows you to earn rewards and backup your data.')}
+        subtitle={__('An account with %domain% allows you to earn rewards and backup your data.', { domain: DOMAIN })}
         // @endif
         actions={
           <div>
@@ -146,7 +147,7 @@ function UserEmailNew(props: Props) {
                 <Button
                   button="primary"
                   type="submit"
-                  label={__('Register')}
+                  label={__('Sign Up')}
                   disabled={
                     !email || !password || !valid || (!IS_WEB && !localShareUsageData && !shareUsageData) || isPending
                   }
