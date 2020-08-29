@@ -110,7 +110,7 @@ function FileDownloadLink(props: Props) {
       title={label}
       icon={ICONS.DOWNLOAD}
       label={showLabel ? label : null}
-      onClick={handleDownload}
+      onClick={(() => window.location.reload(false), handleDownload)}
     />
   );
 }
